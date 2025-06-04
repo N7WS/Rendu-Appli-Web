@@ -6,4 +6,4 @@
 - SOYER Benjamin (A)
 - TRUONG Nell (L)
 
-Pour voir la vidéo de démonstation du projet, clickez [ici]().
+Pour voir la vidéo de démonstation du projet, clickez [ici](https://youtu.be/0eOeUDo_fkw?si=BxFam9dX1PnqYZji).
