@@ -1,0 +1,378 @@
+[
+    {
+        "name": "b118",
+        "devices": [
+            "b118-01"
+        ]
+    },
+    {
+        "name": "c201",
+        "devices": [
+            "basilic",
+            "behemot",
+            "cerbere",
+            "dragon",
+            "gobelin",
+            "gorgone",
+            "griffon",
+            "hippogriffe",
+            "hydre",
+            "manticore",
+            "minotaure",
+            "nymphe",
+            "pegase",
+            "phenix",
+            "pixie",
+            "succube",
+            "troll",
+            "wyvern"
+        ]
+    },
+    {
+        "name": "c202",
+        "devices": [
+            "galium",
+            "zirconium",
+            "polonium",
+            "uranium",
+            "cobalt",
+            "nickel",
+            "phosphore",
+            "azote",
+            "neon",
+            "carbone",
+            "bore",
+            "titane",
+            "oxygene",
+            "antimoine",
+            "iode",
+            "sodium",
+            "actinium",
+            "fluor"
+        ]
+    },
+    {
+        "name": "c203",
+        "devices": [
+            "apollinaire",
+            "baudelaire",
+            "brassens",
+            "demusset",
+            "ferre",
+            "gautier",
+            "hugo",
+            "lafontaine",
+            "lamartine",
+            "mallarme",
+            "maupassant",
+            "poe",
+            "prevert",
+            "rimbaud",
+            "sand",
+            "verlaine"
+        ]
+    },
+    {
+        "name": "c204",
+        "devices": [
+            "albator",
+            "bouba",
+            "calimero",
+            "candy",
+            "casimir",
+            "clementine",
+            "diabolo",
+            "esteban",
+            "goldorak",
+            "heidi",
+            "ladyoscar",
+            "maya",
+            "scoubidou",
+            "snorki",
+            "tao",
+            "zia"
+        ]
+    },
+    {
+        "name": "c205",
+        "devices": [
+            "aspicot",
+            "bulbizarre",
+            "carapuce",
+            "chenipan",
+            "hypotrempe",
+            "magicarpe",
+            "melofee",
+            "nidoran",
+            "piafabec",
+            "pikachu",
+            "psykokwak",
+            "rattata",
+            "rondoudou",
+            "roucool",
+            "salameche",
+            "taupiqueur"
+        ]
+    },
+    {
+        "name": "c206",
+        "devices": [
+            "luke",
+            "leia",
+            "r2d2",
+            "vador",
+            "solo",
+            "palpatine",
+            "yoda",
+            "kenobi",
+            "ewok",
+            "jabba",
+            "chewie",
+            "lando",
+            "dagobah",
+            "bobafett",
+            "z6po",
+            "ackbar"
+        ]
+    },
+    {
+        "name": "c208",
+        "devices": [
+            "borisov"
+        ]
+    },
+    {
+        "name": "c214",
+        "devices": [
+            "atanasoff",
+            "atkinson",
+            "babagge",
+            "backus",
+            "boole",
+            "carmack",
+            "colmerauer",
+            "dijkstra",
+            "gates",
+            "gosling",
+            "grove",
+            "hopper",
+            "jobs",
+            "kernighan",
+            "knuth",
+            "liskov",
+            "lovelace",
+            "moore",
+            "murdock",
+            "neumann",
+            "shannon",
+            "stallman",
+            "swartz",
+            "torvalds",
+            "turing",
+            "zemanek"
+        ]
+    },
+    {
+        "name": "c216",
+        "devices": [
+            "angel",
+            "banshee",
+            "bishop",
+            "cable",
+            "colossus",
+            "cyclope",
+            "dazzler",
+            "diablo",
+            "forge",
+            "gambit",
+            "havok",
+            "iceberg",
+            "jeangrey",
+            "jubele",
+            "magma",
+            "magneto",
+            "malicia",
+            "mystique",
+            "polaris",
+            "psylocke",
+            "rocket",
+            "serval",
+            "shadowcat",
+            "sunfire",
+            "tornade",
+            "xorn"
+        ]
+    },
+    {
+        "name": "c301",
+        "devices": [
+            "arryn",
+            "baratheon",
+            "bravoos",
+            "dorne",
+            "greyjoy",
+            "lannister",
+            "marcheursblancs",
+            "martell",
+            "meeren",
+            "portreal",
+            "sauvageons",
+            "snow",
+            "stark",
+            "targaryen",
+            "tully",
+            "tyrell",
+            "volantis",
+            "winterfell"
+        ]
+    },
+    {
+        "name": "c302",
+        "devices": [
+            "archimede",
+            "aston",
+            "copernic",
+            "darwin",
+            "descartes",
+            "edison",
+            "einsten",
+            "fermat",
+            "galilee",
+            "hawking",
+            "kepler",
+            "newton",
+            "ohm",
+            "pascal",
+            "socrate",
+            "tesla",
+            "volta",
+            "watt"
+        ]
+    },
+    {
+        "name": "c303",
+        "devices": [
+            "ablette",
+            "anguille",
+            "brochet",
+            "carpe",
+            "chevesne",
+            "gardon",
+            "goujon",
+            "omble",
+            "perche",
+            "tanche",
+            "truite",
+            "sandre",
+            "silure",
+            "vairon"
+        ]
+    },
+    {
+        "name": "c304",
+        "devices": [
+            "aragorn",
+            "arwen",
+            "bilbo",
+            "boromir",
+            "elrond",
+            "eomer",
+            "eowyn",
+            "faramir",
+            "frodon",
+            "galadriel",
+            "gandalf",
+            "gimli",
+            "legolas",
+            "merry",
+            "pippin",
+            "sam"
+        ]
+    },
+    {
+        "name": "c305",
+        "devices": [
+            "alose",
+            "bonite",
+            "corb",
+            "daurade",
+            "eperlan",
+            "fletan",
+            "gobie",
+            "mordocet",
+            "nerophis",
+            "orphie",
+            "palomete",
+            "rouget",
+            "sar",
+            "tacaud"
+        ]
+    },
+    {
+        "name": "c306",
+        "devices": [
+            "ader",
+            "bastie",
+            "bleriot",
+            "boeing",
+            "boucher",
+            "farman",
+            "garros",
+            "guynemer",
+            "latecoere",
+            "lindbergh",
+            "marvingt",
+            "mermoz",
+            "messerschmitt",
+            "saintexupery",
+            "voisin",
+            "wright"
+        ]
+    },
+    {
+        "name": "c308",
+        "devices": [
+            "c308-01",
+            "c308-02",
+            "c308-03",
+            "c308-04",
+            "c308-05",
+            "c308-06",
+            "c308-07",
+            "c308-08",
+            "c308-09",
+            "c308-10",
+            "c308-11",
+            "c308-12",
+            "c308-13",
+            "c308-14",
+            "c308-15"
+        ]
+    },
+    {
+        "name": "c309",
+        "devices": [
+            "c309-01",
+            "c309-02",
+            "c309-03",
+            "c309-04",
+            "c309-05",
+            "c309-06",
+            "c309-07",
+            "c309-08",
+            "c309-09",
+            "c309-10",
+            "c309-11",
+            "c309-12",
+            "c309-13",
+            "c309-14",
+            "c309-15"
+        ]
+    },
+    {
+        "name": "c311",
+        "devices": [
+            "www-tr"
+        ]
+    }
+]

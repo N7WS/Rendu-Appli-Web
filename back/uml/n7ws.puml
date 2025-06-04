@@ -1,0 +1,349 @@
+@startuml
+!pragma useIntermediatePackages false
+
+class "BackApplication" as com.n7ws.back.BackApplication {
+  + {static}void main(String[])
+}
+class "Format" as com.n7ws.back.Format {
+  + {static}String centeredHeaderTitle(String, Integer, Character)
+  + {static}String centeredFooter(Integer, Character)
+}
+class "SeedApplication" as com.n7ws.back.SeedApplication {
+  + {static}ConfigurableApplicationContext context
+  __
+  + {static}void main(String[])
+}
+class "ServletInitializer" as com.n7ws.back.ServletInitializer {
+}
+class "DeviceConfigController" as com.n7ws.back.api.DeviceConfigController {
+  +Collection<DeviceConfigModel> deviceConfigs()
+  +DeviceConfigModel deviceConfig(String)
+}
+class "DeviceController" as com.n7ws.back.api.DeviceController {
+  +Collection<DeviceModel> devices()
+  +DeviceModel device(String)
+}
+class "HealthInfoController" as com.n7ws.back.api.HealthInfoController {
+  +Collection<HealthInfoModel> healthInfos()
+  +HealthInfoModel healthInfo(String)
+}
+class "ScriptController" as com.n7ws.back.api.ScriptController {
+  +Collection<ScriptModel> scripts()
+  +ScriptModel script(String)
+}
+class "ServiceController" as com.n7ws.back.api.ServiceController {
+  +Collection<ServiceModel> services()
+  +ServiceModel service(String)
+}
+class "SessionController" as com.n7ws.back.api.SessionController {
+  +Collection<SessionModel> sessions()
+  +SessionModel session(String)
+}
+class "UserController" as com.n7ws.back.api.UserController {
+  +Collection<UserModel> users()
+  +UserModel user(String)
+}
+class "DeviceConfigDomain" as com.n7ws.back.domain.DeviceConfigDomain {
+  +String uid()
+  +String cpuName()
+  +Integer cpuCount()
+  +Integer cpuFreq()
+  +Integer ramSize()
+  +Integer ramFreq()
+}
+class "DeviceDomain" as com.n7ws.back.domain.DeviceDomain {
+  +String name()
+  +DeviceState status()
+  +String room()
+  +Collection<ServiceDomain> services()
+  +Collection<HealthInfoDomain> healthInfos()
+  +Collection<DeviceConfigDomain> deviceConfigs()
+}
+class "HealthInfoDomain" as com.n7ws.back.domain.HealthInfoDomain {
+  +String uid()
+  +Collection<Integer> ping()
+  +Collection<Integer> cpu()
+  +Collection<Integer> ram()
+}
+class "ScriptDomain" as com.n7ws.back.domain.ScriptDomain {
+  +String uid()
+  +String name()
+  +String path()
+}
+class "ServiceDomain" as com.n7ws.back.domain.ServiceDomain {
+  +String uid()
+  +String name()
+  +Integer port()
+  +Collection<ScriptDomain> scripts()
+}
+class "SessionDomain" as com.n7ws.back.domain.SessionDomain {
+  +String uid()
+  +UserDomain owner()
+  +LocalDate expiration()
+}
+class "UserDomain" as com.n7ws.back.domain.UserDomain {
+  +String uid()
+  +String lastname()
+  +String firstname()
+  +String password()
+  +boolean admin()
+}
+entity "DeviceConfigEntity" as com.n7ws.back.entity.DeviceConfigEntity {
+  +String getUid()
+  +DeviceEntity getDevice()
+  +String getCpuName()
+  +Integer getCpuCount()
+  +Integer getCpuFreq()
+  +Integer getRamSize()
+  +Integer getRamFreq()
+  +void setUid(String)
+  +void setDevice(DeviceEntity)
+  +void setCpuName(String)
+  +void setCpuCount(Integer)
+  +void setCpuFreq(Integer)
+  +void setRamSize(Integer)
+  +void setRamFreq(Integer)
+}
+entity "DeviceEntity" as com.n7ws.back.entity.DeviceEntity {
+  +String getUid()
+  +String getName()
+  +DeviceState getStatus()
+  +String getRoom()
+  +Collection<ServiceEntity> getServices()
+  +Collection<HealthInfoEntity> getHealthInfos()
+  +Collection<DeviceConfigEntity> getDeviceConfigs()
+  +void setName(String)
+  +void setStatus(DeviceState)
+  +void setRoom(String)
+  +void setServices(Collection<ServiceEntity>)
+  +void setHealthInfos(Collection<HealthInfoEntity>)
+  +void setDeviceConfigs(Collection<DeviceConfigEntity>)
+}
+interface "Entity" as com.n7ws.back.entity.Entity {
+  + {abstract}String getUid()
+}
+entity "HealthInfoEntity" as com.n7ws.back.entity.HealthInfoEntity {
+  +String getUid()
+  +DeviceEntity getDevice()
+  +Collection<Integer> getPing()
+  +Collection<Integer> getRam()
+  +Collection<Integer> getCpu()
+  +void setUid(String)
+  +void setDevice(DeviceEntity)
+  +void setPing(Collection<Integer>)
+  +void setRam(Collection<Integer>)
+  +void setCpu(Collection<Integer>)
+}
+entity "ScriptEntity" as com.n7ws.back.entity.ScriptEntity {
+  +String getUid()
+  +String getName()
+  +String getPath()
+  +void setUid(String)
+  +void setName(String)
+  +void setPath(String)
+}
+entity "ServiceEntity" as com.n7ws.back.entity.ServiceEntity {
+  +String getUid()
+  +String getName()
+  +Integer getPort()
+  +Collection<ScriptEntity> getScripts()
+  +void setUid(String)
+  +void setName(String)
+  +void setPort(Integer)
+  +void setScripts(Collection<ScriptEntity>)
+}
+entity "SessionEntity" as com.n7ws.back.entity.SessionEntity {
+  +String getUid()
+  +UserEntity getOwner()
+  +LocalDate getExpiration()
+  +void setUid(String)
+  +void setOwner(UserEntity)
+  +void setExpiration(LocalDate)
+}
+entity "UserEntity" as com.n7ws.back.entity.UserEntity {
+  +String getUid()
+  +String getLastname()
+  +String getFirstname()
+  +String getPassword()
+  +Collection<SessionEntity> getSessions()
+  +Boolean getAdmin()
+  +void setUid(String)
+  +void setLastname(String)
+  +void setFirstname(String)
+  +void setPassword(String)
+  +void setSessions(Collection<SessionEntity>)
+  +void setAdmin(Boolean)
+}
+enum "DeviceState" as com.n7ws.back.enums.DeviceState {
+  ONLINE
+  OFFLINE
+  DISABLED
+}
+interface "DeviceConfigMapper" as com.n7ws.back.mapper.DeviceConfigMapper {
+  __
+  + {static}DeviceConfigDomain toDomain(DeviceConfigEntity)
+  + {static}DeviceConfigModel toModel(DeviceConfigDomain)
+}
+interface "DeviceMapper" as com.n7ws.back.mapper.DeviceMapper {
+  + {static}DeviceDomain toDomain(DeviceEntity)
+  + {static}DeviceModel toModel(DeviceDomain)
+}
+interface "HealthInfoMapper" as com.n7ws.back.mapper.HealthInfoMapper {
+  + {static}HealthInfoDomain toDomain(HealthInfoEntity)
+  + {static}HealthInfoModel toModel(HealthInfoDomain)
+}
+interface "Mapper" as com.n7ws.back.mapper.Mapper {
+  + {abstract}Domain toDomain(Entity)
+  + {abstract}Model toModel(Domain)
+}
+interface "ScriptMapper" as com.n7ws.back.mapper.ScriptMapper {
+  + {static}ScriptDomain toDomain(ScriptEntity)
+  + {static}ScriptModel toModel(ScriptDomain)
+}
+interface "ServiceMapper" as com.n7ws.back.mapper.ServiceMapper {
+  + {static}ServiceDomain toDomain(ServiceEntity)
+  + {static}ServiceModel toModel(ServiceDomain)
+}
+interface "SessionMapper" as com.n7ws.back.mapper.SessionMapper {
+  + {static}SessionDomain toDomain(SessionEntity)
+  + {static}SessionModel toModel(SessionDomain)
+}
+interface "UserMapper" as com.n7ws.back.mapper.UserMapper {
+  + {static}UserDomain toDomain(UserEntity)
+  + {static}UserModel toModel(UserDomain)
+}
+class "DeviceConfigModel" as com.n7ws.back.model.DeviceConfigModel {
+  +String uid()
+  +String cpuName()
+  +Integer cpuCount()
+  +Integer cpuFreq()
+  +Integer ramSize()
+  +Integer ramFreq()
+}
+class "DeviceModel" as com.n7ws.back.model.DeviceModel {
+  +String name()
+  +DeviceState status()
+  +String room()
+  +Collection<ServiceModel> services()
+  +Collection<HealthInfoModel> healthInfos()
+  +Collection<DeviceConfigModel> deviceConfigs()
+}
+class "HealthInfoModel" as com.n7ws.back.model.HealthInfoModel {
+  +String uid()
+  +Collection<Integer> ping()
+  +Collection<Integer> cpu()
+  +Collection<Integer> ram()
+}
+class "ScriptModel" as com.n7ws.back.model.ScriptModel {
+  +String uid()
+  +String name()
+  +String path()
+}
+class "ServiceModel" as com.n7ws.back.model.ServiceModel {
+  +String uid()
+  +String name()
+  +Integer port()
+  +Collection<ScriptModel> scripts()
+}
+class "SessionModel" as com.n7ws.back.model.SessionModel {
+  +String uid()
+  +UserModel owner()
+  +LocalDate expiration()
+}
+class "UserModel" as com.n7ws.back.model.UserModel {
+  +String uid()
+  +String lastname()
+  +String firstname()
+  +String password()
+  +boolean admin()
+}
+interface "DeviceConfigRepository" as com.n7ws.back.repository.DeviceConfigRepository {
+}
+interface "DeviceRepository" as com.n7ws.back.repository.DeviceRepository {
+}
+interface "HealthInfoRepository" as com.n7ws.back.repository.HealthInfoRepository {
+}
+interface "ScriptRepository" as com.n7ws.back.repository.ScriptRepository {
+}
+interface "ServiceRepository" as com.n7ws.back.repository.ServiceRepository {
+}
+interface "SessionRepository" as com.n7ws.back.repository.SessionRepository {
+}
+interface "UserRepository" as com.n7ws.back.repository.UserRepository {
+}
+class "DeviceConfigSeed" as com.n7ws.back.seeds.DeviceConfigSeed {
+  +void seed()
+}
+class "DeviceSeed" as com.n7ws.back.seeds.DeviceSeed {
+  +void seed()
+}
+class "HealthInfoSeed" as com.n7ws.back.seeds.HealthInfoSeed {
+  +void seed()
+}
+class "ScriptSeed" as com.n7ws.back.seeds.ScriptSeed {
+  +void seed()
+}
+abstract class "Seed" as com.n7ws.back.seeds.Seed {
+  ..
+  + {static}Logger logger
+  __
+  +void delete()
+  +void run()
+}
+class "ServiceSeed" as com.n7ws.back.seeds.ServiceSeed {
+  +void seed()
+}
+class "SessionSeed" as com.n7ws.back.seeds.SessionSeed {
+  +void seed()
+}
+class "UserSeed" as com.n7ws.back.seeds.UserSeed {
+  +void seed()
+}
+com.n7ws.back.api.DeviceConfigController --> com.n7ws.back.repository.DeviceConfigRepository
+com.n7ws.back.api.DeviceController --> com.n7ws.back.repository.DeviceRepository
+com.n7ws.back.api.HealthInfoController --> com.n7ws.back.repository.HealthInfoRepository
+com.n7ws.back.api.ScriptController --> com.n7ws.back.repository.ScriptRepository
+com.n7ws.back.api.ServiceController --> com.n7ws.back.repository.ServiceRepository
+com.n7ws.back.api.SessionController --> com.n7ws.back.repository.SessionRepository
+com.n7ws.back.api.UserController --> com.n7ws.back.repository.UserRepository
+com.n7ws.back.domain.DeviceDomain --> com.n7ws.back.enums.DeviceState
+com.n7ws.back.domain.DeviceDomain --> com.n7ws.back.domain.ServiceDomain
+com.n7ws.back.domain.DeviceDomain --> com.n7ws.back.domain.DeviceConfigDomain
+com.n7ws.back.domain.DeviceDomain --> com.n7ws.back.domain.HealthInfoDomain
+com.n7ws.back.domain.ServiceDomain --> com.n7ws.back.domain.ScriptDomain
+com.n7ws.back.domain.SessionDomain --> com.n7ws.back.domain.UserDomain
+com.n7ws.back.entity.DeviceConfigEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.entity.DeviceConfigEntity "0..*" <--o "0..1" com.n7ws.back.entity.DeviceEntity
+com.n7ws.back.entity.DeviceEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.entity.DeviceEntity "0..1" o--o "0..*" com.n7ws.back.entity.HealthInfoEntity
+com.n7ws.back.entity.DeviceEntity --> com.n7ws.back.enums.DeviceState
+com.n7ws.back.entity.DeviceEntity "0..*" --> "0..*" com.n7ws.back.entity.ServiceEntity
+com.n7ws.back.entity.HealthInfoEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.entity.ScriptEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.entity.ServiceEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.entity.ServiceEntity "0..*" --> "0..*" com.n7ws.back.entity.ScriptEntity
+com.n7ws.back.entity.SessionEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.entity.SessionEntity "0..*" <--o "0..1" com.n7ws.back.entity.UserEntity
+com.n7ws.back.entity.UserEntity .u.|> com.n7ws.back.entity.Entity
+com.n7ws.back.mapper.DeviceConfigMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.mapper.DeviceMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.mapper.HealthInfoMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.mapper.ScriptMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.mapper.ServiceMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.mapper.SessionMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.mapper.UserMapper .u.|> com.n7ws.back.mapper.Mapper
+com.n7ws.back.model.DeviceModel --> com.n7ws.back.model.HealthInfoModel
+com.n7ws.back.model.DeviceModel --> com.n7ws.back.enums.DeviceState
+com.n7ws.back.model.DeviceModel --> com.n7ws.back.model.ServiceModel
+com.n7ws.back.model.DeviceModel --> com.n7ws.back.model.DeviceConfigModel
+com.n7ws.back.model.ServiceModel --> com.n7ws.back.model.ScriptModel
+com.n7ws.back.model.SessionModel --> com.n7ws.back.model.UserModel
+com.n7ws.back.seeds.DeviceConfigSeed -u-|> com.n7ws.back.seeds.Seed
+com.n7ws.back.seeds.DeviceSeed -u-|> com.n7ws.back.seeds.Seed
+com.n7ws.back.seeds.HealthInfoSeed -u-|> com.n7ws.back.seeds.Seed
+com.n7ws.back.seeds.ScriptSeed -u-|> com.n7ws.back.seeds.Seed
+com.n7ws.back.seeds.Seed --> com.n7ws.back.entity.Entity
+com.n7ws.back.seeds.ServiceSeed -u-|> com.n7ws.back.seeds.Seed
+com.n7ws.back.seeds.SessionSeed -u-|> com.n7ws.back.seeds.Seed
+com.n7ws.back.seeds.UserSeed -u-|> com.n7ws.back.seeds.Seed
+@enduml
